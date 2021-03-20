@@ -15,9 +15,10 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget";
-
-mongoose.connect(MONGODB_URI);
+mongoose.connect("mongodb+srv://dafonz:havefun1@budget.namrb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority" || "mongodb://localhost/budget", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
 mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected');
